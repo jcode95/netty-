@@ -18,9 +18,11 @@ public class InboundHandler2 extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf byteBuf= (ByteBuf) msg;
-        System.out.println("inbound2  === "+byteBuf.toString(CharsetUtil.UTF_8));
-        ctx.fireChannelRead(Unpooled.copiedBuffer("inbound2 ===>>>>"+byteBuf.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
-//        ctx.writeAndFlush(Unpooled.copiedBuffer("inbound2 ===>>>>"+byteBuf.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
+//        System.out.println("inbound2  === "+byteBuf.toString(CharsetUtil.UTF_8));
+//        ctx.fireChannelRead(Unpooled.copiedBuffer("<--inbound2"+byteBuf.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
+
+        ctx.fireChannelRead(Unpooled.copiedBuffer("<--inbound2 "+byteBuf.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
+//        ctx.writeAndFlush(Unpooled.copiedBuffer("<--inbound2 "+byteBuf.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
     }
 
     @Override

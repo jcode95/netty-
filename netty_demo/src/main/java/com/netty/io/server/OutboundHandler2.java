@@ -15,8 +15,9 @@ public class OutboundHandler2 extends ChannelOutboundHandlerAdapter {
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         ByteBuf data= (ByteBuf) msg;
 
-        System.out.println("Outbound2 "+data.toString(CharsetUtil.UTF_8));
-        ctx.write(Unpooled.copiedBuffer("outbound2===>>>>>"+data.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
-        ctx.flush();
+//        System.out.println("Outbound2 "+data.toString(CharsetUtil.UTF_8));
+//        ctx.write(Unpooled.copiedBuffer("<--outbound2"+data.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
+//        ctx.flush();
+       ctx.writeAndFlush(Unpooled.copiedBuffer("<--outbound2"+data.toString(CharsetUtil.UTF_8),CharsetUtil.UTF_8));
     }
 }

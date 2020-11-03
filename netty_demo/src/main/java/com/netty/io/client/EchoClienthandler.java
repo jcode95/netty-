@@ -7,6 +7,7 @@ import io.netty.handler.codec.spdy.SpdySynReplyFrame;
 import io.netty.util.CharsetUtil;
 import io.netty.util.concurrent.EventExecutorGroup;
 
+
 import java.nio.ByteBuffer;
 
 public class EchoClienthandler extends SimpleChannelInboundHandler<ByteBuf> {
@@ -18,6 +19,8 @@ public class EchoClienthandler extends SimpleChannelInboundHandler<ByteBuf> {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelActive@@@@@@@11111111111");
         //写入数据到服务端
+//        Request request = new Request();
+
         ctx.writeAndFlush(Unpooled.copiedBuffer("我是client d channelActive",CharsetUtil.UTF_8));
     }
 

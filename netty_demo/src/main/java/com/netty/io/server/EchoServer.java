@@ -31,14 +31,11 @@ public class EchoServer {
                         protected void initChannel(SocketChannel channel) throws Exception {
                             ChannelPipeline pipeline = channel.pipeline();
 //                            pipeline.addLast(new EchoServerhandler());
-
-
-
-
                             pipeline.addLast(new InboundHandler2());
                             pipeline.addLast(new InboundHandler1());
-                            pipeline.addLast(new OutboundHandler1());
-                            pipeline.addLast(new OutboundHandler2());
+//                            pipeline.addLast(new OutboundHandler1());
+//                            pipeline.addLast(new OutboundHandler2());
+
 
                         }
                     });

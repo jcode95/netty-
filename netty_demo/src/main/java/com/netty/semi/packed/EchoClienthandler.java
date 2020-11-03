@@ -9,7 +9,7 @@ import io.netty.util.CharsetUtil;
 public class EchoClienthandler extends SimpleChannelInboundHandler<ByteBuf> {
 
 
-    @Override
+    /*@Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ByteBuf msg=null;
         byte[] req=("xdclass.net.com.cn"+System.getProperty("line.separator")).getBytes();
@@ -19,6 +19,19 @@ public class EchoClienthandler extends SimpleChannelInboundHandler<ByteBuf> {
             msg.writeBytes(req);
             ctx.writeAndFlush(msg);
         }
+
+
+    }*/
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        String msg="ChannelHandlerContext fireChannelActive();@_" +
+                "  ChannelHandlerContext fireChannelInactive();@_" +
+                "    ChannelHandlerContext @_fireExceptionCaught(Throwable var1);@_" +
+                "    ChannelHandlerContext fireUserEventTriggered(Object var1);@_" +
+                "    ChannelHandlerContext fireChannelRead(Object var1);@_";
+        ByteBuf byteBuf = Unpooled.copiedBuffer(msg.getBytes());
+        ctx.writeAndFlush(byteBuf);
 
 
     }
